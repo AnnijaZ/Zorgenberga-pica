@@ -1,20 +1,37 @@
 package picerija.pd;
 
+import javax.swing.JOptionPane;
+
 public class Pica {
 	//Atributi
 	public int izmers;
-	public int PNr;
-	public boolean merce;
-	public boolean siers;
-	public boolean skinkis;
-	public boolean vista;
-	public boolean desa;
-	public boolean senes;
-	public boolean ananas;
-	public boolean pipari;
-	public boolean sipoli;
-	public boolean tomati;
-	public boolean lasis;
-	public boolean gurki;
+	public int Nr;
+	public String picasVeids;
+	//public boolean dzeriens;
+	//public double cena;
+	//Konstruktors
 	
+	
+		public Pica(int PNr, int Pizmers, String PpicasVeids) {
+			this.Nr = PNr;
+			this.izmers = Pizmers;
+			this.picasVeids = PpicasVeids;
+			/*
+			this.dzeriens = Pdzeriens;
+			this.cena = Pcena;
+		*/
+		}
+
+		//Metodes
+		public int noteiktIzmeru(){
+			return izmers;
+		}
+		/*public double noteiktCenu(){
+			return cena;
+		}*/
+		
+		/*public void izvadit(){
+			JOptionPane.showMessageDialog(null, "Picas Nr: "+Nr+"\nPicas izmers: "+izmers+"\nPicas veids: "+picasVeids);
+		}*/
+
 }
