@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class Picerija {
 	
-	static Pica[] izveidotPicu(Pica[] masivs, int veids){
+	static Pica[] izveidotPicu(Pica[] masivs){
 		String picasVeids;
 		int picasIzmers;
 		int Nr = 0;
@@ -27,6 +27,19 @@ public class Picerija {
 		}
 		return masivs;
 	}
+	
+	static Klients[] ievaditKlientu(Klients[] masivs){
+		for(int i=0; i<masivs.length; i++){
+			String klientaVards = JOptionPane.showInputDialog("Ievadi klienta vardu: ");
+			String klientaTalrunis = JOptionPane.showInputDialog("Ievadi klienta talruni: ");
+			String klientaAdrese = JOptionPane.showInputDialog("Ievadi klienta adresi: ");
+			boolean  klientaPiegade = Boolean.parseBoolean(JOptionPane.showInputDialog("Piegade vai passavaksana?(true/false)"));
+				
+			masivs[i]= new Klients(klientaVards, klientaTalrunis, klientaAdrese, klientaPiegade);
+			
+		}
+		return masivs;
+	}
 
 	public static void main(String[] args) {
 		String izvele;
@@ -35,16 +48,16 @@ public class Picerija {
 		JFrame frame = new JFrame();
 		
 		do{
-			izvele = JOptionPane.showInputDialog("1-Izveidot picu |2-Piefikset klienta info |3-Izvadit pasutijuma info un cenu | stop-apturet");
+			izvele = JOptionPane.showInputDialog("1-Piefikset klienta info|2-Pasutijums |3-Izvadit pasutijuma info un cenu | stop-apturet");
 			izvele = izvele.toLowerCase();
 			
 			switch(izvele){
 			case "1":
 				try{
 					
-					int picuSkaits = Integer.parseInt(JOptionPane.showInputDialog("Cik picas izveidot?"));
-						picasMasivs = new Pica[picuSkaits];
-						picasMasivs = izveidotPicu(picasMasivs, 1);
+					int klientuSk = Integer.parseInt(JOptionPane.showInputDialog("Cik klienti"));
+						klientaMasivs = new Klients[klientuSk];
+						klientaMasivs = ievaditKlientu(klientaMasivs);
 					
 				}catch(Exception e){
 					JOptionPane.showMessageDialog(frame, "Darbiba nepastav!", "Klume", JOptionPane.ERROR_MESSAGE );
@@ -52,7 +65,16 @@ public class Picerija {
 			break;
 			
 			case "2":
-				
+				try{
+					
+					int	picuSkaits = Integer.parseInt(JOptionPane.showInputDialog("Cik picas izveidot?"));
+						picasMasivs = new Pica[picuSkaits];
+						picasMasivs = izveidotPicu(picasMasivs);
+					
+				}catch(Exception e){
+					JOptionPane.showMessageDialog(frame, "Darbiba nepastav!", "Klume", JOptionPane.ERROR_MESSAGE );
+				}
+			break;
 			
 			case "3":
 					/*for(int i=0; i<picasMasivs.length; i++){
