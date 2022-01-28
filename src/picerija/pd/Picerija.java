@@ -9,7 +9,8 @@ public class Picerija {
 		String picasVeids;
 		int picasIzmers;
 		boolean pasDzeriens;
-		int Nr = 0;
+		double pasCena = 0;
+		int Nr = 1;
 		for(int i=0; i<masivs.length; i++){
 			int picasNr = Nr++;
 		
@@ -23,9 +24,11 @@ public class Picerija {
 			do {
 			pasDzeriens = Boolean.parseBoolean(JOptionPane.showInputDialog("Vai nemsiet dzerienu(true/false)"));
 			}while(pasDzeriens != true && pasDzeriens != false);
-			masivs[i]= new Pica(picasNr, picasIzmers, picasVeids, pasDzeriens);
+			boolean  klientaPiegade = Boolean.parseBoolean(JOptionPane.showInputDialog("Piegade?(true/false)"));
 			
-			
+			masivs[i]= new Pica(picasNr, picasIzmers, picasVeids, pasDzeriens, 0, klientaPiegade);
+			pasCena = masivs[i].noteiktCenu();
+			masivs[i]= new Pica(picasNr, picasIzmers, picasVeids, pasDzeriens, pasCena, klientaPiegade);
 			
 		}
 		return masivs;
@@ -36,9 +39,9 @@ public class Picerija {
 			String klientaVards = JOptionPane.showInputDialog("Ievadi klienta vardu: ");
 			String klientaTalrunis = JOptionPane.showInputDialog("Ievadi klienta talruni: ");
 			String klientaAdrese = JOptionPane.showInputDialog("Ievadi klienta adresi: ");
-			boolean  klientaPiegade = Boolean.parseBoolean(JOptionPane.showInputDialog("Piegade?(true/false)"));
+
 				
-			jauns = new Klients(klientaVards, klientaTalrunis, klientaAdrese, klientaPiegade);
+			jauns = new Klients(klientaVards, klientaTalrunis, klientaAdrese);
 			
 		
 		return jauns;
@@ -77,11 +80,14 @@ public class Picerija {
 			break;
 			
 			case "3":
+				try{
 				jaunsKlients.izvadit();
 					for(int i=0; i<picasMasivs.length; i++){
 						picasMasivs[i].izvadit();	
 					}
-		
+				}catch(Exception e){
+					JOptionPane.showMessageDialog(frame, "Darbiba nepastav!", "Klume", JOptionPane.ERROR_MESSAGE );
+				}
 			break;
 			
 			case "stop":
