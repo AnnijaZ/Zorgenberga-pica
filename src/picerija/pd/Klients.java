@@ -1,5 +1,7 @@
 package picerija.pd;
 
+import javax.swing.JOptionPane;
+
 public class Klients {
 	//Atributi
 	public String adrese;
@@ -19,6 +21,8 @@ public class Klients {
 
 	
 	//Metodes
-	
+	public void izvadit(){
+		JOptionPane.showMessageDialog(null, "Klients\n\nVards: "+vards+"\nTalrunis: "+talrunis+"\nAdrese: "+adrese+"Vai ir piegade?: "+piegade);
+	}
 	
 }
