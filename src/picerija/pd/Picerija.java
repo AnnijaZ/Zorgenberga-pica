@@ -28,23 +28,23 @@ public class Picerija {
 		return masivs;
 	}
 	
-	static Klients[] ievaditKlientu(Klients[] masivs){
-		for(int i=0; i<masivs.length; i++){
+	public static Klients ievaditKlientu(Klients jauns){
+
 			String klientaVards = JOptionPane.showInputDialog("Ievadi klienta vardu: ");
 			String klientaTalrunis = JOptionPane.showInputDialog("Ievadi klienta talruni: ");
 			String klientaAdrese = JOptionPane.showInputDialog("Ievadi klienta adresi: ");
 			boolean  klientaPiegade = Boolean.parseBoolean(JOptionPane.showInputDialog("Piegade vai passavaksana?(true/false)"));
 				
-			masivs[i]= new Klients(klientaVards, klientaTalrunis, klientaAdrese, klientaPiegade);
+			jauns = new Klients(klientaVards, klientaTalrunis, klientaAdrese, klientaPiegade);
 			
-		}
-		return masivs;
+		
+		return jauns;
 	}
 
 	public static void main(String[] args) {
 		String izvele;
 		Pica[] picasMasivs = null;
-		Klients[] klientaMasivs = null;
+		Klients jaunsKlients = null;
 		JFrame frame = new JFrame();
 		
 		do{
@@ -54,10 +54,7 @@ public class Picerija {
 			switch(izvele){
 			case "1":
 				try{
-					
-					int klientuSk = Integer.parseInt(JOptionPane.showInputDialog("Cik klienti"));
-						klientaMasivs = new Klients[klientuSk];
-						klientaMasivs = ievaditKlientu(klientaMasivs);
+					jaunsKlients = ievaditKlientu(jaunsKlients);
 					
 				}catch(Exception e){
 					JOptionPane.showMessageDialog(frame, "Darbiba nepastav!", "Klume", JOptionPane.ERROR_MESSAGE );
@@ -67,7 +64,7 @@ public class Picerija {
 			case "2":
 				try{
 					
-					int	picuSkaits = Integer.parseInt(JOptionPane.showInputDialog("Cik picas izveidot?"));
+					int	picuSkaits = Integer.parseInt(JOptionPane.showInputDialog("Cik picas pasutit?"));
 						picasMasivs = new Pica[picuSkaits];
 						picasMasivs = izveidotPicu(picasMasivs);
 					
