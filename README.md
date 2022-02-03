@@ -15,4 +15,5 @@ Picērijas programmatūras projekts ar klasēm un metodēm, kurš versionēts ar
 - [ ] Novērst iepriekš konstatētās kļūdas
 - [ ] Izdzēst liekos un neizmantotos zarus un atkārtoti veikt izgrūšanu uz GitHub krātuvi
 - [ ] Veikt dokumentāciju
+- [ ] 
 :pizza: :pizza: :pizza:
