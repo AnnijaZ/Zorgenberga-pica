@@ -52,9 +52,10 @@ public class Picerija {
 		Pica[] picasMasivs = null;
 		Klients jaunsKlients = null;
 		JFrame frame = new JFrame();
+		int vertejums=0;
 		
 		do{
-			izvele = JOptionPane.showInputDialog("1-Piefikset klienta info|2-Pasutijums |3-Izvadit pasutijuma info un cenu | stop-apturet");
+			izvele = JOptionPane.showInputDialog("1-Piefikset klienta info|2-Pasutijums |3-Izvadit pasutijuma info un cenu| 4-Novertet piceriju no 1-5 | stop-apturet");
 			izvele = izvele.toLowerCase();
 			
 			switch(izvele){
@@ -87,8 +88,16 @@ public class Picerija {
 					}
 				}catch(Exception e){
 					JOptionPane.showMessageDialog(frame, "Darbiba nepastav!", "Klume", JOptionPane.ERROR_MESSAGE );
-				}
+				}	
+			
 			break;
+			
+			case "4":
+				do {
+				vertejums=Integer.parseInt(JOptionPane.showInputDialog("Novērtējiet picēriju no 1-5"));
+				}while(vertejums<1 || vertejums>5);		
+				
+				break;
 			
 			case "stop":
 				JOptionPane.showMessageDialog(frame, "Programma aptureta!", "Bridinajums!", JOptionPane.WARNING_MESSAGE );
