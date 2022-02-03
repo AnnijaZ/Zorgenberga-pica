@@ -1,5 +1,5 @@
 # Zorgenberga-pica
-Picērijas programmatūras projekts, kurš versionēts ar Git
+Picērijas programmatūras projekts ar klasēm un metodēm, kurš versionēts ar Git. Tajā ir iekļautas klases klientam un pasūtījumam kā arī metodes pasūtījuma izveidei un izvadīšanai.
 
 ![Picērijas programmas attēls](https://cdn-icons-png.flaticon.com/512/169/169885.png)
 ![Picērijas programmas attēls](https://cdn.picpng.com/pizza/transparency-pizza-27486.png)
